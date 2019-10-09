@@ -12,6 +12,7 @@
   },
   "rules": {
     "prettier/prettier": "error",
+    // "linebreak-style": 0,
     "spaced-comment": "off",
     "import/first": "off",
     "no-unused-vars": "warn"
