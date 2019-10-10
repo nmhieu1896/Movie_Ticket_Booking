@@ -6,13 +6,12 @@ function App() {
     <div className="App">
       <h3>Hello</h3>
 
-      <p>abscs</p>
-      <p>abscs</p>
-      <p>abscs</p>
+      <p>Hôm nay là thứ 5</p>
+      <p>HÔm nay trời mưa</p>
 
       <div>
-
-        <p>123243352353</p>
+        <p>Bây giờ là buổi chiều</p>
+       
       </div>
     </div>
   );
