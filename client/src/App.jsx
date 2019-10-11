@@ -9,6 +9,7 @@ const App = () => (
   <div className="App">    
     <Header />
     <Carousel />
+    {/* <h3>hello</h3> */}
   </div>
 );
 

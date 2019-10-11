@@ -1,0 +1,31 @@
+@import '../../SCSS/main.scss';
+
+.carousel-item {
+  height: 80vh;
+
+  .play-button {
+    @include absCenter;
+    font-size: 3rem;
+    padding: 1rem 2rem;
+    border: 2px solid black;
+    border-radius: 100%;
+    background: none;
+    z-index: 100;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  .img-carousel {
+    z-index: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #00f5, #5093);
+    z-index: 50;
+  }
+}
