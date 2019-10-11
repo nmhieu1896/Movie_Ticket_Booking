@@ -16,6 +16,7 @@
     "spaced-comment": "off",
     "import/first": "off",
     "no-unused-vars": "warn",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "import/no-unresolved": "off"
   }
 }

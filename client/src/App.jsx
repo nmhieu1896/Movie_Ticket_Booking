@@ -6,10 +6,8 @@ import './SCSS/main.scss';
 
 const App = () => (
   <div className="App">
-    <a href=" " className="animated-title">
-      Hello
-    </a>
     <Carousel />
+    {/* <h3>hello</h3> */}
   </div>
 );
 
