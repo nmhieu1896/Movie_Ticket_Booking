@@ -1,0 +1,57 @@
+@import '../../SCSS/main.scss';
+
+.header{
+  height: 70px;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: white;
+
+  .options {
+    @include absCenter;
+    width: 70%;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+
+    .option{      
+      padding: 10px;
+      cursor: pointer;
+      
+      &:hover{
+        text-decoration: none;
+        color: $text-hover-color;
+      }
+    }
+  }
+
+  .user-option {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .user-option__avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-right: $mg-0;
+    }
+
+    .user-option__name{
+      line-height: 1.1;
+
+      &:hover {
+        text-decoration: none;
+        color: $text-hover-color;
+      }
+    }
+  }
+}
