@@ -6,7 +6,7 @@ import Header from './components/Header/Header.component';
 import './SCSS/main.scss';
 
 const App = () => (
-  <div className="App">    
+  <div className="App">
     <Header />
     <Carousel />
     {/* <h3>hello</h3> */}

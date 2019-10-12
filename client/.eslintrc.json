@@ -17,6 +17,8 @@
     "import/first": "off",
     "no-unused-vars": "warn",
     "comma-dangle": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "arrow-parens": "off",
+    "react/prop-types": "off"
   }
 }
