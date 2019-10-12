@@ -3,6 +3,19 @@
 .carousel-item {
   height: 80vh;
 
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, #000f, #0003 25%, #0001 80%, #000e);
+    z-index: 5;
+    cursor: pointer;
+
+    &:hover+.play-button {
+      opacity: 1;
+    }
+  }
+
   .play-button {
     @include absCenter;
     font-size: 3rem;
@@ -11,21 +24,17 @@
     border-radius: 100%;
     background: none;
     z-index: 100;
+    opacity: 0;
+    transition: .3s;
 
     &:hover {
       opacity: .5;
     }
   }
 
-  .img-carousel {
-    z-index: 0;
+  img {
+    width: 100%;
+    height: auto;
   }
 
-  .overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(to right, #00f5, #5093);
-    z-index: 50;
-  }
 }

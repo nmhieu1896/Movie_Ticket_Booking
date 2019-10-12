@@ -9,22 +9,24 @@ const Header = () => (
       <img src="" alt="logo" />
     </div>
     <div className="options">
-      <a href="" className="option">
+      <a href=" " className="option">
         Lịch Chiếu
       </a>
-      <a href="" className="option">
+      <a href=" " className="option">
         Cụm rạp
       </a>
-      <a href="" className="option">
+      <a href=" " className="option">
         Tin tức
       </a>
-      <a href="" className="option">
+      <a href=" " className="option">
         Ứng dụng
       </a>
     </div>
     <div className="user-option">
       <img src={UserAvtDefault} alt="avt" className="user-option__avatar" />
-      <a href="" className="user-option__name">Đăng Nhập</a>
+      <a href="" className="user-option__name">
+        Đăng Nhập
+      </a>
     </div>
   </div>
 );

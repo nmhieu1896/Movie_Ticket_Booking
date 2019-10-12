@@ -1,27 +1,15 @@
 @import '../../SCSS/main.scss';
 
-.modal-lg {
-  max-width: 900px;
-}
+.carousel {
+  top: 70px;
 
-.modal-content {
-  min-width: 768px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-  background: #4444;
+  .carousel-control-prev,
+  .carousel-control-next {
+    z-index: 100;
+  }
 
-  .modal-body {
-    position: relative;
-    height: 0px;
-    padding: 0;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    
-
-    iframe {
-      position: absolute;
-      top: 00px;
-      left: 0;
-      border: none;
-    }
+  a:hover ~ .carousel-inner .carousel-item .play-button,
+  ol:hover ~ .carousel-inner .carousel-item .play-button,{
+    opacity: 1;
   }
 }

@@ -1,0 +1,25 @@
+.modal-lg {
+  max-width: 900px;
+}
+
+.modal-content {
+  min-width: 768px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  background: #4444;
+
+  .modal-body {
+    position: relative;
+    height: 0px;
+    padding: 0;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    
+
+    iframe {
+      position: absolute;
+      top: 00px;
+      left: 0;
+      border: none;
+    }
+  }
+}

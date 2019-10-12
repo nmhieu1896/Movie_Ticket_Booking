@@ -1,77 +1,88 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
-import CarouselImage from '../CarouselImage/CarouselImage.component';
+import CarouselContent from '../CarouselContent/CarouselContent.component';
+import CarouselModal from '../CarouselModal/CarouselModal.component';
+import { fetchMoviesList } from '../../redux/movie/movie.actions';
 
 import './Carousel.styles.scss';
-// import image from '../../assets/bg.png';
 
-const Carousel = () => (
-  <>
-    <div
-      id="IntroductionCarousel"
-      className="carousel slide"
-      data-ride="carousel"
-      data-interval="false"
-    >
-      <ol className="carousel-indicators">
-        <li
-          data-target="#IntroductionCarousel"
-          data-slide-to={0}
-          className="active"
-        />
-        <li data-target="#IntroductionCarousel" data-slide-to={1} />
-        <li data-target="#IntroductionCarousel" data-slide-to={2} />
-      </ol>
-      {/* Content */}
-      <div className="carousel-inner">
-        <CarouselImage />
-      </div>
-      {/* End of Content */}
-      <a
-        className="carousel-control-prev"
-        href="#IntroductionCarousel"
-        role="button"
-        data-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-      </a>
-      <a
-        className="carousel-control-next"
-        href="#IntroductionCarousel"
-        role="button"
-        data-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-      </a>
-    </div>
+const Carousel = ({ fetchMovies, moviesList }) => {
+  const [currentModal, setCurrentModal] = useState({});
+  const numbersOfMovieOnCarousel = 4;
 
-    <div
-      className="modal trailer"
-      id="modelId"
-      tabIndex={-1}
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
+  useEffect(() => {
+    fetchMovies();
+  }, [fetchMovies]);
+
+  const getModal = movie => setCurrentModal(movie);
+
+  return (
+    <>
       <div
-        className="modal-dialog modal-dialog-centered modal-lg"
-        role="document"
+        id="IntroductionCarousel"
+        className="carousel slide"
+        data-ride="carousel"
+        data-interval="40000"
       >
-        <div className="modal-content">
-          <div className="modal-body">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/0WWzgGyAH6Y?autoplay=1"
-              allow="autoplay"
-              allowFullScreen
-              title="video"
+        {/* Create Indicator */}
+        <ol className="carousel-indicators">
+          {/* Funny ways to create an array with length */}
+          {/* {new Array(numbersOfMovieOnCarousel).fill(null).map((_, index) => ( */}
+          {[...new Array(numbersOfMovieOnCarousel)].map((_, index) => (
+            <li
+              data-target="#IntroductionCarousel"
+              data-slide-to={index}
+              className={index === 0 ? 'active' : ''}
             />
-          </div>
+          ))}
+        </ol>
+        {/* Create left,right button */}
+        <a
+          className="carousel-control-prev"
+          href="#IntroductionCarousel"
+          role="button"
+          data-slide="prev"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true" />
+        </a>
+        <a
+          className="carousel-control-next"
+          href="#IntroductionCarousel"
+          role="button"
+          data-slide="next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true" />
+        </a>
+        {/* Content */}
+        <div className="carousel-inner">
+          {moviesList
+            .filter((_, index) => index < numbersOfMovieOnCarousel)
+            .map((movie, index) => (
+              <CarouselContent
+                key={movie.maPhim}
+                movie={movie}
+                index={index}
+                getModal={getModal}
+              />
+            ))}
         </div>
       </div>
-    </div>
-  </>
-);
 
-export default Carousel;
+      <CarouselModal movie={currentModal} />
+    </>
+  );
+};
+
+const mapStateToProps = ({ movie }) => ({
+  moviesList: movie.moviesList
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchMovies: () => dispatch(fetchMoviesList())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Carousel);
